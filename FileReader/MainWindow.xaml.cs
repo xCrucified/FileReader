@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace FileReader
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void findBtn_Click(object sender, RoutedEventArgs e)
@@ -83,6 +85,10 @@ namespace FileReader
             }
 
             return result;
+        }
+        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
         }
 
         public static int CountPunctuation(string text)
